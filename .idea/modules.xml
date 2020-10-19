@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/android-novel-api.iml" filepath="$PROJECT_DIR$/.idea/android-novel-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/novel-framework-common/novel-framework-common.iml" filepath="$PROJECT_DIR$/novel-framework-common/novel-framework-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/novel-framework-parent/novel-framework-parent.iml" filepath="$PROJECT_DIR$/novel-framework-parent/novel-framework-parent.iml" />
+    </modules>
+  </component>
+</project>
