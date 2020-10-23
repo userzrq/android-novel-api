@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class CodeGenerator {
 
     @Test
-    public void genCode(){
+    public void genCode() {
         String moduleName = "ynaj";
         String packageName = "api";
         String className = "novel";
@@ -32,17 +32,17 @@ public class CodeGenerator {
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("UserZrq");
         gc.setOpen(false); //生成后是否打开资源管理器
-        gc.setFileOverride(false); //重新生成时文件是否覆盖
-        gc.setServiceName("%sService");	//去掉Service接口的首字母I
+        gc.setFileOverride(true); //重新生成时文件是否覆盖（重名文件是否会覆盖，取消前缀的不会覆盖）
+        gc.setServiceName("%sService");    //去掉Service接口的首字母I
         gc.setIdType(IdType.AUTO); //主键策略
-        gc.setDateType(DateType.ONLY_DATE);//定义生成的实体类中日期类型
+        gc.setDateType(DateType.TIME_PACK);//定义生成的实体类中日期类型
         gc.setSwagger2(true);//开启Swagger2模式
 
         mpg.setGlobalConfig(gc);
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.40.184:3306/"+moduleName+"_"+className);
+        dsc.setUrl("jdbc:mysql://192.168.40.184:3306/" + moduleName + "_" + className);
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root123456");
@@ -63,7 +63,7 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setInclude(moduleName + "_\\w*");//设置要映射的表名
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略,驼峰映射（表名驼峰映射）
-        strategy.setTablePrefix(pc.getModuleName() + "_");//设置表前缀不生成
+        // strategy.setTablePrefix(moduleName + "_");//设置表前缀不生成
 
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略（字段名驼峰映射）
         strategy.setEntityLombokModel(true); // lombok 模型 @Accessors(chain = true) setter链式操作
