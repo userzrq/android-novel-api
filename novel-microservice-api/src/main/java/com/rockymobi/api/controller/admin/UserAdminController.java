@@ -1,8 +1,7 @@
 package com.rockymobi.api.controller.admin;
 
 
-import com.rockymobi.api.service.YnajUserService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/android/admin/user")
 public class UserAdminController {
 
-    @Autowired
-    private YnajUserService ynajUserService;
+//    @Autowired
+//    private YnajUserService ynajUserService;
 }
 

@@ -2,7 +2,9 @@ package com.rockymobi.api.util;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OssConstantPropertyUtils implements InitializingBean {
 
     @Value("${aliyun.oss.file.endpoint}")
