@@ -3,6 +3,7 @@ package com.rockymobi.api.service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Map;
 
 public interface OssFileService {
 
@@ -13,4 +14,6 @@ public interface OssFileService {
      * @throws IOException
      */
     String uploadFileToOss(MultipartFile file) throws IOException;
+
+
 }

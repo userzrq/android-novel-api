@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
+
 @RestController
 @Slf4j
 @RequestMapping("/api/oss/file")
@@ -20,9 +21,18 @@ public class OssFileController {
     @Autowired
     private OssFileService ossFileService;
 
+    /**
+     * oss文件上传接口
+     *
+     * @param file
+     * @return
+     * @throws IOException
+     */
     @PostMapping("upload")
     public R fileUpload(@RequestParam("file") MultipartFile file) throws IOException {
         String fileUploadName = ossFileService.uploadFileToOss(file);
         return R.ok().data("fileName", fileUploadName);
     }
+
+
 }

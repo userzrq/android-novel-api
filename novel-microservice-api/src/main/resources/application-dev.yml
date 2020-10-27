@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.40.184:3306/ynaj_novel?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root123456
+    hikari:
+      pool-name: AndroidHikariPool
+      maximum-pool-size: 12
+      connection-timeout: 60000
+      minimum-idle: 10
+      idle-timeout: 500000
+      max-lifetime: 540000
+      connection-test-query: SELECT 1
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+aliyun:
+  oss:
+    file:
+      endpoint: http://oss.stayrocky.com
+      keyid: LTAI22rx1aQDEblo
+      keysecret: Zht3bVd3neIjKqO3VGtbECQ43y2Qy8
+      bucketname: rockymobi

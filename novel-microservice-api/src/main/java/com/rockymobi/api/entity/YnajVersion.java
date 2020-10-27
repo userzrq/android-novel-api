@@ -3,11 +3,15 @@ package com.rockymobi.api.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.time.LocalDateTime;
+
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -16,7 +20,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author UserZrq
@@ -25,7 +29,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="YnajVersion对象", description="")
+@ApiModel(value = "YnajVersion对象", description = "")
 public class YnajVersion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,7 +48,10 @@ public class YnajVersion implements Serializable {
     private String uploadDate;
 
     @ApiModelProperty(value = "app版本号")
-    private Integer appVersion;
+    private String appVersion;
+
+    @ApiModelProperty(value = "app包云地址")
+    private String appAddr;
 
     @ApiModelProperty(value = "版本更新内容")
     private String updateContent;
