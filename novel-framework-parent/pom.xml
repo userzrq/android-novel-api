@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.7.RELEASE</version>
+        <version>2.2.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.rockymobi</groupId>
@@ -51,7 +51,7 @@
             <dependency>
                 <groupId>com.rockymobi</groupId>
                 <artifactId>novel-framework-common</artifactId>
-                <version>${rockymobi.version}</version>
+                <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
             <!--mybatis-plus 持久层-->
@@ -189,13 +189,6 @@
     </dependencyManagement>
 
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+
 
 </project>
