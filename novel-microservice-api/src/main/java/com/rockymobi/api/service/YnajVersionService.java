@@ -20,4 +20,10 @@ public interface YnajVersionService extends IService<YnajVersion> {
      * @return
      */
     YnajVersion compareAppVersion(AppVersionVo vo);
+
+    /**
+     *
+     * @param vo
+     */
+    YnajVersion selectByVersionVo(AppVersionVo vo);
 }

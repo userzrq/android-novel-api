@@ -1,9 +1,12 @@
 package com.rockymobi.api.controller;
 
 
+import com.rockymobi.api.entity.YnajApp;
 import com.rockymobi.api.entity.YnajVersion;
+import com.rockymobi.api.mapper.YnajAppMapper;
 import com.rockymobi.api.service.YnajVersionService;
 import com.rockymobi.api.vo.AppVersionVo;
+import com.rockymobi.common.util.ValidatorUtils;
 import com.rockymobi.common.vo.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +36,9 @@ public class YnajVersionController {
     @Autowired
     private YnajVersionService versionService;
 
+    @Autowired
+    private YnajAppMapper appMapper;
+
     /**
      * 对比App版本接口
      *
@@ -42,7 +48,19 @@ public class YnajVersionController {
     public R compareAppVersion(@RequestBody AppVersionVo vo) {
 
         log.info("请求版本信息: " + vo.toString());
+        ValidatorUtils.validateEntity(vo);
         YnajVersion version = versionService.compareAppVersion(vo);
+
+        YnajApp ynajApp = appMapper.selectById(vo.getAppId());
+
+        YnajVersion submitVersion = versionService.selectByVersionVo(vo);
+
+        if (Objects.isNull(ynajApp)) {
+            return R.error().data(null).message("app表中无当前应用，请先添加app相关信息再查询版本");
+        }
+        if (Objects.isNull(submitVersion)) {
+            return R.error().data(null).message("上传版本有误，请重试");
+        }
         if (Objects.isNull(version)) {
             return R.ok().data(null).message("当前版本已经是最新版本");
         }

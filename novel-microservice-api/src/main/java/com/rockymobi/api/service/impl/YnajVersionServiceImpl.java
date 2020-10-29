@@ -45,6 +45,17 @@ public class YnajVersionServiceImpl extends ServiceImpl<YnajVersionMapper, YnajV
         }
     }
 
+    @Override
+    public YnajVersion selectByVersionVo(AppVersionVo vo) {
+        QueryWrapper<YnajVersion> wrapper = new QueryWrapper<>();
+        wrapper.eq("app_id", vo.getAppId());
+        wrapper.eq("client_phone_type", vo.getClientPhoneType());
+        wrapper.eq("app_version", vo.getAppVersion());
+
+        YnajVersion version = versionMapper.selectOne(wrapper);
+        return version;
+    }
+
     private int compareVersion(String version1, String version2) {
         if (version1 == null || version2 == null) {
             throw new RuntimeException("版本号不能为空");
