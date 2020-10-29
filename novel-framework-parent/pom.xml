@@ -36,11 +36,20 @@
         <aliyun.oss.version>2.5.0</aliyun.oss.version>
         <fastjson.version>1.2.28</fastjson.version>
         <json.version>20170516</json.version>
+        <validation.version>2.0.1.Final</validation.version>
     </properties>
 
     <dependencyManagement>
 
         <dependencies>
+
+            <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation.version}</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>com.aliyun.oss</groupId>
